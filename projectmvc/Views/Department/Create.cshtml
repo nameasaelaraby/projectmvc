@@ -1,0 +1,26 @@
+﻿@model DAL.ViewModels.DepartmentVM
+@{
+    ViewData["Title"] = "Create";
+}
+
+<form asp-action="Create" asp-controller="Department" method="post" class="form-group">
+    <div class="row">
+        <label for="Name">Department Name</label>
+        <input id="Name" asp-for="DepartmentName" type="text" class="form-control" />
+        <span class="text-danger" asp-validation-for="DepartmentName"></span>
+    </div>
+   @*  <div class="row">
+        <label for="code">Department ID</label>
+        <input id="code" type="text" asp-for="DepartmentId" class="form-control" />
+        <span class="text-danger" asp-validation-for="DepartmentId"></span>
+
+    </div> *@
+    <br />
+    <br />
+    <center>
+        <div class="form-group">
+            <button type="submit" class="btn btn-primary">Create</button>
+        </div>
+    </center>
+
+</form>

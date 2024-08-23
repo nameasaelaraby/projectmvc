@@ -1,0 +1,27 @@
+﻿@model DAL.ViewModels.CounterVM
+
+@{
+    ViewData["Title"] = "Counter Details";
+}
+
+<h1>Counter Details</h1>
+
+<div>
+    <h4>Serial Number</h4>
+    <p>@Model.SerialNumber</p>
+</div>
+<div>
+    <h4>Current Reading</h4>
+    <p>@Model.CurrentReading</p>
+</div>
+<div>
+    <h4>Reading Date</h4>
+    <p>@Model.ReadingDate.ToString("d")</p>
+</div>
+<div>
+    <h4>Customer ID</h4>
+    <p>@Model.CustomerId</p>
+</div>
+
+<a asp-action="Edit" asp-route-id="@Model.CounterId" class="btn btn-primary">Edit</a> |
+<a asp-action="Index">Back to List</a>

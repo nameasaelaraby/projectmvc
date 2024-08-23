@@ -1,0 +1,47 @@
+﻿@model DAL.ViewModels.BillVM
+
+@{
+    ViewBag.Title = "Create Bill";
+}
+
+<h1>Create Bill</h1>
+<style>
+    .field-validation-error {
+        color: red;
+    }
+</style>
+
+<form asp-action="Create" method="post">
+    @Html.AntiForgeryToken()
+
+    <div class="form-group">
+        @Html.LabelFor(m => m.IssueDate)
+        @Html.TextBoxFor(m => m.IssueDate, new { @class = "form-control", type = "date" })
+        @Html.ValidationMessageFor(m => m.IssueDate)
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(m => m.AmountDue)
+        @Html.TextBoxFor(m => m.AmountDue, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.AmountDue)
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(m => m.DueDate)
+        @Html.TextBoxFor(m => m.DueDate, new { @class = "form-control", type = "date" })
+        @Html.ValidationMessageFor(m => m.DueDate)
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(m => m.CounterId)
+        @Html.TextBoxFor(m => m.CounterId, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.CounterId)
+    </div>
+
+    <div class="form-group">
+        <button type="submit" class="btn btn-primary">Create</button>
+    </div>
+</form>
+<div>
+    <a href="@Url.Action("Index")" class="btn btn-secondary">Back to List</a>
+</div>

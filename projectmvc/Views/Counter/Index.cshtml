@@ -1,0 +1,47 @@
+﻿@model IEnumerable<DAL.ViewModels.CounterVM>
+
+@{
+    ViewData["Title"] = "Counter List";
+}
+
+<h1>Counter List</h1>
+
+
+@if (TempData["Message"] != null)
+{
+    <div class="alert alert-success">
+        @TempData["Message"]
+    </div>
+}
+
+<p>
+    <a asp-action="Create" class="btn btn-primary">Create New Counter</a>
+</p>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Serial Number</th>
+            <th>Current Reading</th>
+            <th>Reading Date</th>
+            <th>Customer ID</th>
+            <th>Details</th>
+            <th>Edit</th>
+            <th>Delete</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.SerialNumber</td>
+                <td>@item.CurrentReading</td>
+                <td>@item.ReadingDate.ToString("d")</td>
+                <td>@item.CustomerId</td>
+                <td><a asp-action="Details" asp-controller="Counter" asp-route-id="@item.CounterId" class="btn btn-success">Details</a></td>
+                <td><a asp-action="Edit" asp-controller="Counter" asp-route-id="@item.CounterId" class="btn btn-warning">Edit</a></td>
+                <td><a asp-action="Delete" asp-controller="Counter" asp-route-id="@item.CounterId" class="btn btn-danger">Delete</a></td>
+            </tr>
+        }
+    </tbody>
+</table>

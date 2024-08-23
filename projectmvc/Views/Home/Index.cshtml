@@ -1,0 +1,70 @@
+﻿@{
+    ViewData["Title"] = "Electricity Company";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewData["Title"]</title>
+    <style>
+        html, body {
+            height: 100%;
+            margin: 0;
+            font-family: Arial, sans-serif;
+            color: #fff;
+            text-align: center;
+        }
+
+        body {
+            background-image: url('@Url.Content("~/img/pngtree-electricity-logo-png-image_9052706.png")');
+            background-size: 60%; /* تصغير حجم الخلفية */
+            background-position: center;
+            background-attachment: fixed;
+            background-repeat: no-repeat;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        h1 {
+            font-size: 3em;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+
+        .menu {
+            margin-top: 30px;
+        }
+
+            .menu a {
+                display: block;
+                margin: 10px 0;
+                padding: 10px 20px;
+                background-color: rgba(255, 255, 255, 0.7); /* تغيير لون الخلفية للأزرار */
+                color: #000; /* تغيير لون النص ليصبح أغمق مع الخلفية الفاتحة */
+                text-decoration: none;
+                font-size: 1.2em;
+                border-radius: 5px;
+                transition: background-color 0.3s ease;
+            }
+
+                .menu a:hover {
+                    background-color: rgba(255, 255, 255, 0.9); /* تغيير لون الخلفية عند التحريك */
+                }
+    </style>
+</head>
+<body>
+
+    <h1>Welcome to the Electricity Company Website</h1>
+    <div class="menu">
+        <a href="@Url.Action("Index", "Bill")">Check Bill Value</a>
+        <a href="@Url.Action("Index", "Counter")">View Counter Details</a>
+        <a href="@Url.Action("Create", "Complaint")">Submit a Complaint</a>
+        <a href="@Url.Action("Create", "Counter")">Apply for a New Counter</a>
+    </div>
+
+</body>
+</html>

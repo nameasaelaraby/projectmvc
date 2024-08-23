@@ -1,0 +1,28 @@
+﻿@model DAL.ViewModels.ComplaintVM
+
+@{
+    ViewData["Title"] = "Complaint Details";
+}
+
+<h1>Complaint Details</h1>
+
+<div>
+    <h4>Description</h4>
+    <p>@Model.Description</p>
+</div>
+<div>
+    <h4>Submission Date</h4>
+    <p>@Model.SubmissionDate.ToString("d")</p>
+</div>
+<div>
+    <h4>Customer ID</h4>
+    <p>@Model.CustomerId</p>
+</div>
+<div>
+    <h4>Status</h4>
+    <p>@Model.Status</p>
+</div>
+
+<a asp-action="Edit" asp-route-id="@Model.ComplaintId" class="btn btn-primary">Edit</a> |
+
+<a asp-action="Index">Back to List</a>

@@ -1,0 +1,32 @@
+﻿@model DAL.ViewModels.BranchVM
+
+@{
+    ViewBag.Title = "Create Branch";
+}
+
+<h1>Create Branch</h1>
+<style>
+    .field-validation-error {
+        color: red; 
+    }
+</style>
+
+<form asp-action="Create" method="post">
+    @Html.AntiForgeryToken()
+
+    <div class="form-group">
+        @Html.LabelFor(m => m.BranchName)
+        @Html.TextBoxFor(m => m.BranchName, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.BranchName)
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(m => m.BranchLocation)
+        @Html.TextBoxFor(m => m.BranchLocation, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.BranchLocation)
+    </div>
+
+    <div class="form-group">
+        <button type="submit" class="btn btn-primary">Create</button>
+    </div>
+</form>

@@ -1,0 +1,39 @@
+﻿@model IEnumerable<DAL.ViewModels.BillVM>
+
+<h2>Bills</h2>
+
+<table class="table">
+
+
+    <p>
+        <a asp-action="Create" class="btn btn-primary">Create New Bill</a>
+    </p>
+    <thead>
+        <tr>
+            <th>Issue Date</th>
+            <th>Amount Due</th>
+            <th>Due Date</th>
+            <th>Counter Id</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var bill in Model)
+        {
+            <tr>
+                <td>@bill.IssueDate.ToShortDateString()</td>
+                <td>@bill.AmountDue</td>
+                <td>@bill.DueDate.ToShortDateString()</td>
+                <td>@bill.CounterId</td>
+                <td><a asp-action="Details" asp-controller="Bill" asp-route-id="@bill.BillId" class="btn btn-success">Details</a></td>
+                <td><a asp-action="Edit" asp-controller="Bill" asp-route-id="@bill.BillId" class="btn btn-warning">Edit</a></td>
+                <td>
+                    <form asp-action="DeleteConfirmed" method="post" style="display:inline;">
+                        <input type="hidden" name="BillId" value="@bill.BillId" />
+                        <button type="submit" class="btn btn-danger" onclick="return confirmDelete();">Delete</button>
+                    </form>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

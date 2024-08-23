@@ -1,0 +1,36 @@
+﻿@model DAL.ViewModels.BillVM
+
+@{
+    ViewData["Title"] = "Edit Bill";
+}
+
+<h1>Edit Bill</h1>
+
+<form asp-action="Edit" method="post" class="form-group">
+    <div class="form-group">
+        <label asp-for="IssueDate" class="control-label">Issue Date</label>
+        <input asp-for="IssueDate" class="form-control" />
+        <span asp-validation-for="IssueDate" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="AmountDue" class="control-label">Amount Due</label>
+        <input asp-for="AmountDue" class="form-control" />
+        <span asp-validation-for="AmountDue" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="DueDate" class="control-label">Due Date</label>
+        <input asp-for="DueDate" class="form-control" />
+        <span asp-validation-for="DueDate" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="CounterId" class="control-label">Counter ID</label>
+        <input asp-for="CounterId" class="form-control" />
+        <span asp-validation-for="CounterId" class="text-danger"></span>
+    </div>
+    <input type="hidden" asp-for="BillId" />
+
+    <div class="form-group">
+        <button type="submit" class="btn btn-primary">Save</button>
+        <a asp-action="Index" class="btn btn-secondary">Cancel</a>
+    </div>
+</form>

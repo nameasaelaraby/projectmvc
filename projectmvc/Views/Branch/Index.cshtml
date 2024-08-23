@@ -1,0 +1,37 @@
+﻿@model IEnumerable<DAL.ViewModels.BranchVM>
+
+<h2>Branch List</h2>
+
+<table class="table">
+
+
+    <p>
+        <a asp-action="Create" class="btn btn-primary">Create New Branch</a>
+    </p>
+
+
+    <thead>
+        <tr>
+           
+            <th>BranchName</th>
+            <th>BranchLocation</th>
+           
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var Branch in Model)
+        {
+            <tr>
+               
+                <td>@Branch.BranchName</td>
+                <td>@Branch.BranchLocation</td>
+                <td><a asp-action="Details" asp-route-id="@Branch.BranchId" class="btn btn-success">Details</a></td>
+                <td><a asp-action="Edit" asp-route-id="@Branch.BranchId" class="btn btn-warning">Edit</a></td>
+                <td><a asp-action="Delete" asp-route-id="@Branch.BranchId" class="btn btn-danger">Delete</a></td>
+
+
+
+            </tr>
+        }
+    </tbody>
+</table>

@@ -1,0 +1,28 @@
+﻿@model DAL.ViewModels.CustomerVM
+
+@{
+    ViewData["Title"] = "Customer Details";
+}
+
+<h1>Customer Details</h1>
+
+<div>
+    <h4>First Name</h4>
+    <p>@Model.FirstName</p>
+</div>
+<div>
+    <h4>Last Name</h4>
+    <p>@Model.LastName</p>
+</div>
+<div>
+    <h4>Address</h4>
+    <p>@Model.Address</p>
+</div>
+<div>
+    <h4>Phone Number</h4>
+    <p>@Model.PhoneNumber</p>
+</div>
+
+<a asp-action="Edit" asp-route-id="@Model.CustomerId" class="btn btn-success">Edit</a> |
+<a asp-action="Index" class="btn btn-primary">Back to List</a>
+
